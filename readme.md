@@ -18,12 +18,22 @@ $ npm install --save-dev sketch-processor
 
 ## Use
 
-Currently, only [Abstract](https://www.abstract.com) data sources are supported. You'll need an access token and project GUID from the [Abstract SDK](https://sdk.goabstract.com), stored as a local `.env` file (see `.env.sample` in this repository), before running this tool.
+To get the most out of this tool, you'll need a set of templates to be rendered after the Sketch data is extracted. Templates use the [Handlebars](https://handlebarsjs.com) format. You'll also need a Sketch file, which can be stored either locally or inside an Abstract project.
 
-You'll also need a set of templates, stored in a `templates` folder in the directory in which you run this tool, to be rendered after the Sketch data is extracted. Templates use the [Handlebars](https://handlebarsjs.com) format.
+### Local Files
+
+To process a locally-sourced Sketch file, specify the `local` storage type and provide an `input` file:
+
+```
+$ sketch-processor --storage local --input ./path/to/designs.sketch --templates ./example-templates --output ./out
+```
+
+### Files Stored in Abstract
+
+To access files in Abstract, you'll need an access token and project GUID from the [Abstract SDK](https://sdk.goabstract.com), stored as a local `.env` file (see `.env.sample` in this repository).
 
 Once these items are in place, simply execute the tool:
 
 ```bash
-$ sketch-processor
+$ sketch-processor --storage abstract --templates ./example-templates --output ./out
 ```

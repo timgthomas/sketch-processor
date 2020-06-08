@@ -2,7 +2,7 @@ const convertColor = require('color-convert');
 const { promises: fs } = require('fs');
 
 function convertToId(name) {
-  return name.toLowerCase().replace('/', '--').replace(' - ', '--');
+  return name.toLowerCase().replace('/', '--').replace(' - ', '--').replace(', ', '--');
 }
 
 function parseColors(data) {
